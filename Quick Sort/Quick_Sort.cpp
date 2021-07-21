@@ -29,6 +29,7 @@ Algorithm:
 #include <stdio.h>
 void quicksort(int [], int, int);
 int partition(int [], int, int);
+
  int main()
 {
  int a[10];
@@ -38,55 +39,57 @@ printf("Enter the no  of elements: ");
 scanf("%d", &n); 
 printf("Enter the elements:\n");
 for (i = 0; i <n; i++)
-{
- scanf("%d", &a[i]);
-} 
+ {
+    scanf("%d", &a[i]);
+ } 
 printf("Elements Before Sorting : \n");
 for (i = 0; i <n; i++)
-{
-printf("%d ", a[i]);
-}
+ {
+    printf("%d ", a[i]);
+ }
 quicksort(a, 0, n - 1);
 printf("Elements After Sorting : ");
 for (i = 0; i <n; i++)
-{
-printf("%d ", a[i]);
-}
+ {
+    printf("%d ", a[i]);
+ }
 return 0;
 }
+
 void quicksort(int a[], int low, int high)
 {
 int j;
 if (low < high)
  {
-j=partition(a,low,high);
-quicksort(a, low, j - 1);
- quicksort(a, j + 1, high);
-    }
+    j=partition(a,low,high);
+    quicksort(a, low, j - 1);
+    quicksort(a, j + 1, high);
+ }
 }
+
 int partition(int a[],int low, int high)
 {
-int pivot, i, j, temp;
-pivot = low;
+ int pivot, i, j, temp;
+ pivot = low;
  i = low;
  j = high;
 while (i < j) 
-{
-while (a[i] <= a[pivot] && i <= high)
  {
- i++;
- }
- while (a[j] > a[pivot] && j >= low)
-{
- j--;
- }
+  while (a[i] <= a[pivot] && i <= high)
+    {
+       i++;
+    }
+  while (a[j] > a[pivot] && j >= low)
+    {
+       j--;
+    }
   if (i < j)
   {
-  temp = a[i];
+     temp = a[i];
   a[i] = a[j];
   a[j] = temp;
   }
-   }
+}
   temp = a[j];
   a[j] = a[pivot];
  a[pivot] = temp;
