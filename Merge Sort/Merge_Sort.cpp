@@ -33,7 +33,7 @@ void merge(int a[],int ,int ,int ,int);
 int main()
 {
  int a[10],n,i;
-printf("Enter no of elements: ");
+ printf("Enter no of elements: ");
 scanf("%d",&n);
 printf("\nEnter array elements: \n");
 for(i=0;i<n;i++)
@@ -49,12 +49,12 @@ void mergesort(int a[],int low,int high)
 {
 int mid; 
 if(low<high)
-{
-mid=(low+high)/2;
-mergesort(a,low,mid);    
-mergesort(a,mid+1,high);  
-merge(a,low,mid,mid+1,high);
-    }
+  {
+     mid=(low+high)/2;
+     mergesort(a,low,mid);    
+     mergesort(a,mid+1,high);  
+     merge(a,low,mid,mid+1,high);
+  }
 }
  
 void merge(int a[],int x,int y,int z,int w)
@@ -66,11 +66,11 @@ j=z;
 v=0;
 while(i<=y&& j<=w)  
  {
- if(a[i]<a[j])
-sort[v++]=a[i++];
-else
-sort[v++]=a[j++];
-}
+   if(a[i]<a[j])
+   sort[v++]=a[i++];
+   else
+   sort[v++]=a[j++];
+ }
 while(i<=y)   
 sort[v++]=a[i++];
 while(j<=w)    
